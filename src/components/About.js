@@ -1,0 +1,101 @@
+import "react-multi-carousel/lib/styles.css";
+import { Container, Row, Col } from "react-bootstrap";
+import colorSharp from "../assets/img/color-sharp.png";
+import { AiFillCaretDown } from "react-icons/ai";
+import profile from "../assets/img/profile-bg.PNG";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useState, useEffect } from "react";
+
+// import Image from "next/image";
+
+export const About = () => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
+  const [hideArrow, setHideArrow] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setHideArrow(true); // hide when scrolled down
+      } else {
+        setHideArrow(false); // show again when scrolled to top
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setHideArrow(true); // hide on click
+    }
+  };
+
+  return (
+    <section className="about" id="about">
+      <div className="container">
+        <div className="skill-bx wow zoomIn">
+          <Row className="align-items-center" data-aos="fade-up">
+            {/* Left: Text */}
+            <Col md={7} className="text-start">
+              <h2>About</h2>
+              <p>
+                I&apos;m Kruthi Hosamane, a software developer with industry
+                experience in building full-stack applications using Java,
+                Spring Boot, React, Flutter, and PostgreSQL. With a strong
+                foundation in object-oriented programming and system design,
+                I&apos;ve developed scalable REST APIs, optimized backend
+                performance, and created responsive user interfaces that enhance
+                usability and performance. From streamlining deployments and
+                improving response times, to crafting intuitive front-ends and
+                deploying cloud-ready applications, I bring both technical depth
+                and a user-centered approach to every project. Passionate about
+                clean code, continuous learning, and delivering meaningful
+                digital experiences.
+              </p>
+            </Col>
+
+            {/* Right: Image */}
+            <Col md={5} className="text-center">
+              <img
+                src={profile}
+                alt="Profile"
+                className="img-fluid about-profile-img"
+              />
+            </Col>
+          </Row>
+        </div>
+      </div>
+
+      <img className="background-image-left" src={colorSharp} alt="Image" />
+      <div
+        className={`scroll-down ${hideArrow ? "hidden" : ""}`}
+        onClick={() => scrollToSection("projects")}
+      >
+        <AiFillCaretDown className="arrow" />
+      </div>
+    </section>
+  );
+};
