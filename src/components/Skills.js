@@ -1,14 +1,14 @@
 import "react-multi-carousel/lib/styles.css";
 import myImage from "../assets/img/mockito-transparent.png";
-import { DiProlog } from "react-icons/di";
+import prolog from "../assets/img/SWI-prolog-icon.png";
+import expressjs from "../assets/img/expressjs.png";
+import flask from "../assets/img/flask-icon.png";
 import colorSharp from "../assets/img/color-sharp.png";
-import React from "react";
 
 import {
   FaPython,
   FaJsSquare,
   FaJava,
-  FaHtml5,
   FaCss3Alt,
   FaGit,
   FaReact,
@@ -17,20 +17,15 @@ import {
 import {
   SiTypescript,
   SiC,
-  SiFlask,
-  SiExpress,
   SiFlutter,
   SiSpringboot,
   SiJunit5,
-  SiIntellijidea,
   SiPostman,
   SiSpring,
   SiMongodb,
   SiPostgresql,
   SiJira,
   SiNextdotjs,
-  SiEclipseide,
-  SiGraphql,
 } from "react-icons/si";
 
 const skills = [
@@ -43,8 +38,38 @@ const skills = [
 ];
 
 const technicalTools = [
-  { name: "Flask", icon: <SiFlask style={{ color: "#000000" }} /> },
-  { name: "Express.js", icon: <SiExpress style={{ color: "#000000" }} /> },
+  {
+    name: "Flask",
+    icon: (
+      <img
+        src={flask}
+        alt="A description"
+        loading="lazy"
+        style={{
+          width: "60px",
+          height: "60px",
+          objectFit: "cover",
+          borderRadius: "50%",
+        }}
+      />
+    ),
+  },
+  {
+    name: "Express.js",
+    icon: (
+      <img
+        src={expressjs}
+        alt="A description"
+        loading="lazy"
+        style={{
+          width: "60px",
+          height: "60px",
+          objectFit: "cover",
+          borderRadius: "50%",
+        }}
+      />
+    ),
+  },
   { name: "React", icon: <FaReact style={{ color: "#61DBFB" }} /> },
   { name: "Node.js", icon: <FaNodeJs style={{ color: "#339933" }} /> },
   { name: "Next.js", icon: <SiNextdotjs style={{ color: "#ffffff" }} /> },
@@ -54,17 +79,22 @@ const technicalTools = [
   { name: "Git", icon: <FaGit style={{ color: "#F05032" }} /> },
   {
     name: "Prolog",
-    icon: <DiProlog style={{ color: "#A62338" }} />,
-    colorInside: "#A62338", // deep red (Protégé owl body)
-    colorOutside: "#FF6C00", // orange-red (Protégé owl gradient top)
+    icon: (
+      <img
+        src={prolog}
+        alt="A description"
+        loading="lazy"
+        style={{
+          width: "60px",
+          height: "60px",
+          objectFit: "cover",
+          borderRadius: "50%",
+        }}
+      />
+    ),
   },
-  // {
-  //   name: "Visual Studio Code",
-  //   icon: <SiVisualstudiocode style={{ color: "#007ACC" }} />,
-  // },
   { name: "Jira", icon: <SiJira style={{ color: "#0052CC" }} /> },
-  { name: "IntelliJ", icon: <SiIntellijidea style={{ color: "#000000" }} /> },
-  { name: "Eclipse", icon: <SiEclipseide style={{ color: "#2C2255" }} /> },
+
   { name: "Postman", icon: <SiPostman style={{ color: "#FF6C37" }} /> },
   { name: "Spring MVC", icon: <SiSpring style={{ color: "#6DB33F" }} /> },
   { name: "PostgreSQL", icon: <SiPostgresql style={{ color: "#336791" }} /> },
@@ -80,7 +110,7 @@ const technicalTools = [
           width: "60px",
           height: "60px",
           objectFit: "cover",
-          borderRadius: "50%", // if you want it circular
+          borderRadius: "50%",
         }}
       />
     ),
@@ -125,8 +155,7 @@ export const Skills = () => {
               </div>
 
               <h3 className="skillsHeading">Tools and Technologies</h3>
-              
-              
+
               <div className="skill-grid">
                 {technicalTools.map((tool, index) => (
                   <div key={index} className="skillCard">
@@ -135,9 +164,6 @@ export const Skills = () => {
                   </div>
                 ))}
               </div>
-
-
-              
             </div>
           </div>
         </div>

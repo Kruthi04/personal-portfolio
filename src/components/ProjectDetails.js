@@ -4,7 +4,8 @@ import projImg2 from "../assets/img/musicalChordImg.png";
 import projImg3 from "../assets/img/crimeWareImg.png";
 import { Container, Row, Col } from "react-bootstrap";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-
+import { HashLink } from "react-router-hash-link";
+import { useEffect } from "react";
 
 const projectDetails = [
   {
@@ -56,14 +57,20 @@ const projectDetails = [
 export default function ProjectDetails() {
   const { id } = useParams();
   const project = projectDetails.find((p) => p.id === id);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   if (!project) return <p>Project not found.</p>;
 
   return (
-
     <section className="projectDetails" id="details">
       <Container>
-        {/* Title and Description */}
+        {/* Title
+         and Description */}
+        <HashLink to="/#projects" className="btn btn-outline-light btn-sm ">
+          ← Back
+        </HashLink>
         <Row className="my-4">
           <Col>
             <h2>{project.title}</h2>

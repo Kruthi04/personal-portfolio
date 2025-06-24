@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img-trial.png";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import { AiFillCaretDown } from "react-icons/ai";
-// import 'animate.css';
+import "animate.css";
 import TrackVisibility from "react-on-screen";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -12,12 +11,15 @@ export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
-  const [delta, setDelta] = useState(60);
+  const [delta, setDelta] = useState(30);
   const [index, setIndex] = useState(1);
   const toRotate = [
     "Software Developer",
-    "Frontend Developer",
-    "Backend Developer",
+    "Full-Stack Engineer",
+    "React & Spring Boot Developer",
+    "Flutter Enthusiast",
+    "API Optimization Specialist",
+    "Java & Node.js Coder",
   ];
   const period = 2000;
 
@@ -42,13 +44,15 @@ export const Banner = () => {
     setText(updatedText);
 
     if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
+      setDelta(15);
+    } else {
+      setDelta(30);
     }
 
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
       setIndex((prevIndex) => prevIndex - 1);
-      setDelta(period);
+      setDelta(1200);
     } else if (isDeleting && updatedText === "") {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
@@ -63,9 +67,9 @@ export const Banner = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
-        setHideArrow(true); // hide when scrolled down
+        setHideArrow(true);
       } else {
-        setHideArrow(false); // show again when scrolled to top
+        setHideArrow(false);
       }
     };
 
@@ -77,7 +81,7 @@ export const Banner = () => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
-      setHideArrow(true); // hide on click
+      setHideArrow(true);
     }
   };
 
@@ -111,7 +115,7 @@ export const Banner = () => {
                     apps with Java, React & Spring Boot—fueled by code,
                     creativity, and lots of coffee ☕
                   </p>
-                  <button onClick={() => console.log("connect")}>
+                  <button onClick={() => scrollToSection("connect")}>
                     Let’s Connect
                     <ArrowRightCircle size={25} />
                   </button>
@@ -119,9 +123,6 @@ export const Banner = () => {
               )}
             </TrackVisibility>
           </Col>
-          {/* <Col xs={12} md={6} xl={5}>
-           
-          </Col> */}
         </Row>
       </Container>
       <div
