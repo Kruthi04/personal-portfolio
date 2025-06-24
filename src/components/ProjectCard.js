@@ -1,6 +1,8 @@
 import { FaGithub } from "react-icons/fa";
 import { Col } from "react-bootstrap";
 
+import { Link } from "react-router-dom";
+
 export const ProjectCard = ({
   title,
   description,
@@ -12,7 +14,12 @@ export const ProjectCard = ({
   return (
     <Col size={12} sm={6} md={4}>
       <div className="proj-imgbx bg-dark text-white p-3 rounded">
-        <img src={imgUrl} alt={title} className="img-fluid rounded" />
+        <img
+          src={imgUrl}
+          alt={title}
+          className="img-fluid rounded"
+          style={{ maxHeight: "160px", objectFit: "cover", width: "100%" }}
+        />
         <div className="pt-3">
           <h5 className="fw-bold">{title}</h5>
           <p>{description}</p>
@@ -40,23 +47,17 @@ export const ProjectCard = ({
               style={{ pointerEvents: "auto", zIndex: 1000 }}
             >
               <FaGithub /> GitHub
-            </a>{"    "}
+            </a>
+            {"    "}
 
             {detailsLink && (
-              <a
-                href={detailsLink}
+              <Link
+                to={detailsLink}
                 className="btn btn-outline-light btn-sm"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  marginLeft: "auto",
-                  zIndex: 500
-                  // display: "flex",
-                  // width: "fit-content",
-                }}
+                style={{ marginLeft: "auto", zIndex: 500 }}
               >
-                Details
-              </a>
+                View Details
+              </Link>
             )}
           </div>
         </div>

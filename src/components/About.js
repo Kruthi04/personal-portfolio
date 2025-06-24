@@ -1,9 +1,8 @@
 import "react-multi-carousel/lib/styles.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import colorSharp from "../assets/img/color-sharp.png";
 import { AiFillCaretDown } from "react-icons/ai";
 import profile from "../assets/img/profile-bg.PNG";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import { useState, useEffect } from "react";
 
@@ -12,7 +11,6 @@ import { useState, useEffect } from "react";
 export const About = () => {
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -33,23 +31,31 @@ export const About = () => {
   const [hideArrow, setHideArrow] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setHideArrow(true); // hide when scrolled down
-      } else {
-        setHideArrow(false); // show again when scrolled to top
-      }
-    };
+    const section = document.getElementById("about");
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHideArrow(false);
+        } else {
+          setHideArrow(true);
+        }
+      },
+      { threshold: 0.6 }
+    );
+
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
   }, []);
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
-      setHideArrow(true); // hide on click
+      setHideArrow(true);
     }
   };
 

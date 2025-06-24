@@ -4,15 +4,27 @@ import logo from "../assets/img/k-logo-final-preview.png";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/icons8-github-96.png";
 import navIcon3 from "../assets/img/icons8-mail-50.png";
-// import { HashLink } from 'react-router-hash-link';
-// import {
-//   BrowserRouter as Router
-// } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
+  const location = useLocation();
+
+  const handleNavClick = (section) => {
+    setActiveLink(section);
+
+    if (location.pathname !== "/") {
+      window.location.href = `/#${section}`;
+    } else {
+      const el = document.getElementById(section);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        window.history.replaceState(null, "", `#${section}`);
+      }
+    }
+  };
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 50) {
@@ -32,7 +44,6 @@ export const NavBar = () => {
   };
 
   return (
-    // <Router>
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="/">
@@ -41,9 +52,9 @@ export const NavBar = () => {
             alt="Logo"
             style={{
               width: "150px",
-              height: "60px",
+              height: "80px",
               objectFit: "cover",
-              borderRadius: "50%", // if you want it circular
+              borderRadius: "50%",
             }}
           />
         </Navbar.Brand>
@@ -53,41 +64,47 @@ export const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link
-              href="#home"
+              onClick={() => handleNavClick("home")}
               className={
                 activeLink === "home" ? "active navbar-link" : "navbar-link"
               }
-              onClick={() => onUpdateActiveLink("home")}
             >
               Home
             </Nav.Link>
+
             <Nav.Link
-              href="#about"
+              onClick={() => handleNavClick("about")}
               className={
                 activeLink === "about" ? "active navbar-link" : "navbar-link"
               }
-              onClick={() => onUpdateActiveLink("about")}
             >
               About
             </Nav.Link>
 
             <Nav.Link
-              href="#projects"
+              onClick={() => handleNavClick("projects")}
               className={
                 activeLink === "projects" ? "active navbar-link" : "navbar-link"
               }
-              onClick={() => onUpdateActiveLink("projects")}
             >
-              Projects
+              Profile
             </Nav.Link>
+
             <Nav.Link
-              href="#skills"
+              onClick={() => handleNavClick("skills")}
               className={
                 activeLink === "skills" ? "active navbar-link" : "navbar-link"
               }
-              onClick={() => onUpdateActiveLink("skills")}
             >
               Skills
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => handleNavClick("connect")}
+              className={
+                activeLink === "skills" ? "active navbar-link" : "navbar-link"
+              }
+            >
+              Contact
             </Nav.Link>
           </Nav>
           <span className="navbar-text">
@@ -102,13 +119,14 @@ export const NavBar = () => {
                 <img src={navIcon3} alt="" />
               </a>
             </div>
-            {/* <HashLink to='#connect'>
-                <button className="vvd"><span>Let’s Connect</span></button>
-              </HashLink> */}
+            {/* <HashLink to="#connect">
+              <button className="vvd">
+                <span>Let’s Connect</span>
+              </button>
+            </HashLink> */}
           </span>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    // </Router>
   );
 };
