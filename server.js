@@ -6,6 +6,16 @@ require("dotenv").config();
 const app = express();
 const PORT = 5050;
 
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://personal-portfolio-red-psi-39.vercel.app"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 app.use(
   cors({
     origin: [
