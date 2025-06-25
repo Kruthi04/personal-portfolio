@@ -46,7 +46,7 @@ export const Contact = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5050/contact", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export const Contact = () => {
       <Container>
         <Row className="align-items-center">
           <Col size={12} md={6}>
-            <img src={contactImg} alt="Contact Us" />
+            <img src={contactImg} alt="Contact" />
           </Col>
           <Col size={12} md={6}>
             <TrackVisibility>

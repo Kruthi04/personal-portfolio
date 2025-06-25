@@ -271,7 +271,7 @@ export const Projects = () => {
           </Col>
         </Row>
       </Container>
-      <img className="background-image-left" src={colorSharp} alt="Image" />
+      <img className="background-image-left" src={colorSharp} alt="" />
       <div
         className={`scroll-down ${hideArrow ? "hidden" : ""}`}
         onClick={() => scrollToSection("skills")}

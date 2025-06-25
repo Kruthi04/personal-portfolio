@@ -10,8 +10,6 @@ import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
 import ScrollSpy from "./components/ScrollSpy";
 import ProjectDetails from "./components/ProjectDetails";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { Contact } from "./components/Contact";
 
 function App() {

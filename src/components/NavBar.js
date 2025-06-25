@@ -39,9 +39,9 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
-  };
+  // const onUpdateActiveLink = (value) => {
+  //   setActiveLink(value);
+  // };
 
   return (
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>

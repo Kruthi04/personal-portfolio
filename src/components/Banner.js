@@ -21,7 +21,6 @@ export const Banner = () => {
     "API Optimization Specialist",
     "Java & Node.js Coder",
   ];
-  const period = 2000;
 
   useEffect(() => {
     AOS.init({ duration: 1000 });

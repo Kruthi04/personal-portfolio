@@ -9,25 +9,6 @@ import { useState, useEffect } from "react";
 // import Image from "next/image";
 
 export const About = () => {
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-
   const [hideArrow, setHideArrow] = useState(false);
 
   useEffect(() => {
@@ -95,7 +76,7 @@ export const About = () => {
         </div>
       </div>
 
-      <img className="background-image-left" src={colorSharp} alt="Image" />
+      <img className="background-image-left" src={colorSharp} alt="" />
       <div
         className={`scroll-down ${hideArrow ? "hidden" : ""}`}
         onClick={() => scrollToSection("projects")}
