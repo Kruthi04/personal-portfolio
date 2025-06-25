@@ -13,17 +13,17 @@ export const Banner = () => {
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(30);
   // const [index, setIndex] = useState(1);
-  const toRotate = [
-    "Software Developer",
-    "Full-Stack Engineer",
-    "React & Spring Boot Developer",
-    "Flutter Enthusiast",
-    "API Optimization Specialist",
-    "Java & Node.js Coder",
-  ];
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
+    const toRotate = [
+      "Software Developer",
+      "Full-Stack Engineer",
+      "React & Spring Boot Developer",
+      "Flutter Enthusiast",
+      "API Optimization Specialist",
+      "Java & Node.js Coder",
+    ];
 
     const tick = () => {
       let i = loopNum % toRotate.length;
@@ -55,7 +55,7 @@ export const Banner = () => {
     }, delta);
 
     return () => clearInterval(ticker);
-  }, [text, delta, isDeleting, loopNum, toRotate]);
+  }, [text, delta, isDeleting, loopNum]);
 
   const [hideArrow, setHideArrow] = useState(false);
 
