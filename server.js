@@ -8,7 +8,10 @@ const PORT = 5050;
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://personal-portfolio-red-psi-39.vercel.app",
+    ],
     methods: ["GET", "POST"],
   })
 );
