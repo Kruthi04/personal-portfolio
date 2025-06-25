@@ -165,7 +165,7 @@ export const Contact = () => {
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp} alt="Image" />
+      <img className="background-image-right" src={colorSharp} alt="" />
     </section>
   );
 };
