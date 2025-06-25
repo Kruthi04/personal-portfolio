@@ -1,7 +1,4 @@
 import { useParams } from "react-router-dom";
-import projImg1 from "../assets/img/devLangImg.png";
-import projImg2 from "../assets/img/musicalChordImg.png";
-import projImg3 from "../assets/img/crimeWareImg.png";
 import { Container, Row, Col } from "react-bootstrap";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import { HashLink } from "react-router-hash-link";
@@ -18,7 +15,7 @@ const projectDetails = [
       "Implemented lexical analyzer, parser, and runtime for seamless command-line execution.",
       "Focused on robust error handling and clean AST generation for reliable code interpretation.",
     ],
-    imgUrl: projImg1,
+    imgUrl: `${process.env.PUBLIC_URL}/assets/img/devLangImg.png`,
     techStack: ["Python", "Prolog", "Git & GitHub", "VSCode", "ANTLR"],
     githubLink: "https://github.com/Kruthi04/DevLANG",
   },
@@ -32,7 +29,7 @@ const projectDetails = [
       "Integrated MySQL for structured data management and scalable storage.",
       "Combines audio pattern recognition with statistical modeling to decode harmonic progressions.",
     ],
-    imgUrl: projImg2,
+    imgUrl: `${process.env.PUBLIC_URL}/assets/img/musicalChordImg.png`,
     techStack: ["Python", "JavaScript", "MySQL", "pandas", "numpy"],
     githubLink:
       "https://github.com/Kruthi04/Machine-Learning-Driven-Musical-Chord-Detection",
@@ -48,7 +45,7 @@ const projectDetails = [
       "Deployed as a static web app on Microsoft Azure, streamlining access and updates through CI/CD automation.",
       "Delivered real-time data insights through linked data visualizations and knowledge graph analysis.",
     ],
-    imgUrl: projImg3,
+    imgUrl: `${process.env.PUBLIC_URL}/assets/img/crimeWareImg.png`,
     techStack: ["OWL Ontology", "GraphDB", "SPARQL", "React.js", "Azure"],
     githubLink: "https://github.com/Kruthi04/Integrated-Crime-Data-Analysis",
   },
