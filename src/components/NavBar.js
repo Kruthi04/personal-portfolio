@@ -119,11 +119,19 @@ export const NavBar = () => {
                 <img src={navIcon3} alt="" />
               </a>
             </div>
-            {/* <HashLink to="#connect">
-              <button className="vvd">
-                <span>Let’s Connect</span>
-              </button>
-            </HashLink> */}
+            <button
+              type="button"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/KruthiHosamane-resume.pdf"; // Place this file in the public folder
+                link.setAttribute("download", "KruthiHosamane-Resume.pdf");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              <span>Download Resume</span>
+            </button>
           </span>
         </Navbar.Collapse>
       </Container>
