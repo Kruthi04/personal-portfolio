@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import colorSharp2 from "../assets/img/color-sharp2.png";
 import { HashLink } from "react-router-hash-link";
 import { useEffect } from "react";
 
@@ -15,7 +14,7 @@ const projectDetails = [
       "Implemented lexical analyzer, parser, and runtime for seamless command-line execution.",
       "Focused on robust error handling and clean AST generation for reliable code interpretation.",
     ],
-    imgUrl: `${process.env.PUBLIC_URL}/devLangImg.png`,
+    imgUrl: `/devLangImg.png`,
     techStack: ["Python", "Prolog", "Git & GitHub", "VSCode", "ANTLR"],
     githubLink: "https://github.com/Kruthi04/DevLANG",
   },
@@ -29,7 +28,7 @@ const projectDetails = [
       "Integrated MySQL for structured data management and scalable storage.",
       "Combines audio pattern recognition with statistical modeling to decode harmonic progressions.",
     ],
-    imgUrl: `${process.env.PUBLIC_URL}/musicalChordImg.png`,
+    imgUrl: `/musicalChordImg.png`,
     techStack: ["Python", "JavaScript", "MySQL", "pandas", "numpy"],
     githubLink:
       "https://github.com/Kruthi04/Machine-Learning-Driven-Musical-Chord-Detection",
@@ -45,7 +44,7 @@ const projectDetails = [
       "Deployed as a static web app on Microsoft Azure, streamlining access and updates through CI/CD automation.",
       "Delivered real-time data insights through linked data visualizations and knowledge graph analysis.",
     ],
-    imgUrl: `${process.env.PUBLIC_URL}/crimeWareImg.png`,
+    imgUrl: `/crimeWareImg.png`,
     techStack: ["OWL Ontology", "GraphDB", "SPARQL", "React.js", "Azure"],
     githubLink: "https://github.com/Kruthi04/Integrated-Crime-Data-Analysis",
   },
@@ -53,7 +52,7 @@ const projectDetails = [
 
 export default function ProjectDetails() {
   const { id } = useParams();
-  const colorSharp2 = `${process.env.PUBLIC_URL}/color-sharp2.png`;
+  const colorSharp2 = `/color-sharp2.png`;
   const project = projectDetails.find((p) => p.id === id);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
