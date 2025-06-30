@@ -252,10 +252,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Banner Css ************/
 .banner {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
   margin-top: 0;
-  padding: 160px 0 100px 0;
+  padding: 60px 0 100px 0;
   background-image: url("./assets/img/background-banner-trial.jpg");
   background-position: top center;
   background-size: cover;
