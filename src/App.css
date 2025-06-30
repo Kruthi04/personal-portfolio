@@ -95,12 +95,18 @@ p.danger {
 /************ Navbar Css ************/
 nav.navbar {
   padding: 15px 0;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   top: 0;
   z-index: 9999;
   transition: 0.32s ease-in-out;
 }
+
+.navbar-collapse {
+  background-color: #121212;
+  padding: 1rem;
+}
+
 nav.navbar.scrolled {
   padding: 0px 0;
   margin-bottom: auto;
@@ -550,8 +556,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: left;
 }
 .project .tab-pane-fixed-height {
-  min-height: 450px;
-  position: relative;
+  /* min-height: 450px;
+  position: relative; */
+  padding-bottom: 80px;
 }
 
 .project li {
@@ -614,7 +621,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transition: 0.3s ease-in-out;
   text-align: center;
   z-index: 0;
+  /* white-space: normal; */
+  word-break: break-word;
 }
+
+.tab-pane::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .project .nav.nav-pills .nav-link::before {
   content: "";
   position: absolute;
@@ -628,8 +644,64 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   top: 0;
   left: 0;
   z-index: -1;
+  margin-bottom: 20px;
   transition: 0.3s ease-in-out;
 }
+
+@media (max-width: 768px) {
+  .project .skill-bx {
+    margin-bottom: 30px;
+  }
+
+  .project .tab-pane {
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .project .nav.nav-pills {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: none;
+  }
+
+  .project .nav.nav-pills .nav-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .project .nav.nav-pills .nav-link {
+    display: inline-block;
+    width: 85%;
+    max-width: 300px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    background-color: #1f1f1f;
+    border: none;
+    border-radius: 999px !important;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    box-shadow: none;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .project .nav.nav-pills .nav-link.active {
+    background: linear-gradient(
+      90.21deg,
+      rgba(69, 23, 77, 1) -5.91%,
+      rgba(147, 52, 128, 1) 111.58%
+    ) !important;
+    color: white;
+  }
+}
+
 .project .nav.nav-pills .nav-link.active::before {
   width: 100% !important;
 }
